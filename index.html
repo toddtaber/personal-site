@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todd Taber, Medical Device R&amp;D Executive</title>
+<meta name="description" content="Todd Taber, medical device R&D executive. 15+ years leading product development from concept through commercialization.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F1;
+    --paper-deep:#EFEDE5;
+    --ink:#1A2233;
+    --ink-deep:#12172A;
+    --ink-soft:#535E6E;
+    --line:#D9D5C8;
+    --accent:#2A7F82;
+    --accent-deep:#184C4E;
+    --accent-soft:#E3EFEE;
+    --accent-light:#6FD3D6;
+    --gold:#B3823E;
+    --gold-soft:#F4E9D7;
+    --gold-light:#E3B563;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", -apple-system, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-weight:600;
+    line-height:1.15;
+    margin:0;
+  }
+
+  a{color:var(--accent-deep);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---- Nav ---- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(247,246,241,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:14px;
+    padding-bottom:14px;
+  }
+  nav .name{
+    font-family:"Source Serif 4", serif;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:0.01em;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:22px;
+    margin:0; padding:0;
+  }
+  nav a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:0.92rem;
+  }
+  nav a:hover{color:var(--ink);}
+
+  @media (max-width:600px){
+    nav ul{gap:14px;}
+    nav ul li:nth-child(3), nav ul li:nth-child(4){display:none;}
+  }
+
+  /* ---- Hero ---- */
+  header.hero{
+    padding:76px 0 60px;
+    background:linear-gradient(160deg, var(--ink-deep) 0%, var(--ink) 100%);
+    border-bottom:1px solid var(--ink-deep);
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero h1{color:#FFFFFF;}
+  header.hero .role{
+    color:#D3DAE4;
+    font-family:"Source Serif 4", serif;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.92rem;
+    font-weight:500;
+    margin-top:10px;
+  }
+  header.hero .keywords{
+    font-family:"Source Serif 4", serif;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.8rem;
+    color:#8D99AC;
+    margin-top:10px;
+  }
+  header.hero .tagline{
+    color:#F2C878;
+    border-left-color:#F2C878;
+  }
+  header.hero .contact-row a{
+    color:#8FE8EA;
+    font-weight:500;
+    border-color:rgba(255,255,255,0.35);
+  }
+  header.hero .contact-row a:hover{
+    color:#FFFFFF;
+    border-color:#F2C878;
+  }
+  header.hero .contact-row a.linkedin-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+  }
+  header.hero .li-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:16px; height:16px;
+    background:#E3B563;
+    color:#12172A;
+    font-family:"IBM Plex Sans", sans-serif;
+    font-weight:700;
+    font-size:0.6rem;
+    border-radius:2px;
+  }
+  .hero-wave{
+    position:absolute;
+    top:0; right:0;
+    width:60%; height:100%;
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:48px;
+  }
+  .hero-text{flex:1; min-width:0;}
+  .hero-photo{
+    flex-shrink:0;
+    width:148px;
+    height:148px;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid #FFFFFF;
+    box-shadow:0 8px 28px rgba(0,0,0,0.4);
+  }
+  .hero-photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  @media (max-width:560px){
+    .hero-inner{flex-direction:column-reverse; gap:28px;}
+    .hero-photo{width:104px; height:104px;}
+  }
+  header.hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.1rem);
+    letter-spacing:-0.01em;
+  }
+  header.hero .role{
+    margin-top:10px;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+  }
+  header.hero .tagline{
+    margin-top:34px;
+    padding-left:22px;
+    border-left:3px solid var(--accent);
+    font-family:"Source Serif 4", serif;
+    font-style:italic;
+    font-size:1.28rem;
+    color:var(--accent-deep);
+    max-width:32ch;
+  }
+  .contact-row{
+    margin-top:36px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 22px;
+    font-size:0.94rem;
+    color:var(--ink-soft);
+  }
+  .contact-row a{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--line);}
+  .contact-row a:hover{color:var(--accent-deep); border-color:var(--accent);}
+
+  /* ---- Sections ---- */
+  section{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  section h2{
+    font-size:1.5rem;
+    margin-bottom:26px;
+    position:relative;
+    padding-top:16px;
+  }
+  section h2::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:36px; height:3px;
+    background:var(--accent);
+  }
+  section p{margin:0 0 16px; max-width:66ch;}
+  section p:last-child{margin-bottom:0;}
+
+  /* ---- Experience timeline ---- */
+  .role-block{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:6px 24px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .role-block:first-child{border-top:none; padding-top:0;}
+  .role-block .dates{
+    color:var(--ink-soft);
+    font-size:0.86rem;
+    padding-top:3px;
+  }
+  .role-block .title{font-weight:600; font-size:1.05rem;}
+  .role-block .org{color:var(--accent-deep); font-weight:500;}
+  .role-block ul{
+    margin:10px 0 0;
+    padding-left:18px;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  .role-block li{margin-bottom:6px;}
+  .role-block li:last-child{margin-bottom:0;}
+
+  .sub-role{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:4px 24px;
+    padding:14px 0 0;
+  }
+  .sub-role .dates{color:var(--ink-soft); font-size:0.82rem;}
+  .sub-role .title{font-weight:500; font-size:0.96rem;}
+
+  @media (max-width:560px){
+    .role-block, .sub-role{grid-template-columns:1fr;}
+    .role-block .dates{padding-top:0;}
+  }
+
+  .earlier{
+    margin-top:8px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+  .earlier .row{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:8px 0;
+    font-size:0.94rem;
+  }
+  .earlier .row span:first-child{color:var(--ink);}
+  .earlier .row span:last-child{color:var(--ink-soft); white-space:nowrap;}
+
+  /* ---- Highlights ---- */
+  .highlights{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px 32px;
+  }
+  .highlights .item .num{
+    font-family:"Source Serif 4", serif;
+    font-size:1.7rem;
+    color:var(--gold);
+    display:block;
+    margin-bottom:6px;
+  }
+  .highlights .item h3{
+    font-size:0.98rem;
+    font-family:"IBM Plex Sans", sans-serif;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .highlights .item p{
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  @media (max-width:560px){.highlights{grid-template-columns:1fr;}}
+
+  .awards{margin-top:34px; padding:26px 24px; background:var(--gold-soft); border-radius:4px; border-top:none;}
+  .awards h3{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-weight:600; font-size:0.98rem;
+    margin-bottom:14px;
+  }
+  .awards .row{display:flex; gap:14px; margin-bottom:10px; font-size:0.94rem;}
+  .awards .row .year{color:var(--gold); font-weight:700; min-width:44px;}
+  .awards .row span:last-child{color:var(--ink-soft);}
+
+  /* ---- Skills ---- */
+  .skills-group{margin-bottom:22px;}
+  .skills-group:last-child{margin-bottom:0;}
+  .skills-group h3{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-weight:600; font-size:0.9rem;
+    color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:9px;}
+  .tag{
+    border:1px solid var(--accent);
+    background:var(--accent-soft);
+    padding:6px 13px;
+    border-radius:3px;
+    font-size:0.88rem;
+    color:var(--accent-deep);
+  }
+
+  /* ---- Education ---- */
+  .edu-item{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:4px 16px;
+    padding:12px 0;
+    border-top:1px solid var(--line);
+    font-size:0.96rem;
+  }
+  .edu-item:first-child{border-top:none; padding-top:0;}
+  .edu-item .degree{font-weight:600;}
+  .edu-item .school{color:var(--ink-soft);}
+
+  /* ---- Footer ---- */
+  footer{
+    padding:48px 0 70px;
+  }
+  footer h2{
+    font-size:1.4rem;
+    margin-bottom:14px;
+    position:relative;
+    padding-top:16px;
+  }
+  footer h2::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:36px; height:3px;
+    background:var(--accent);
+  }
+  footer p{color:var(--ink-soft); max-width:52ch; margin-bottom:26px;}
+  .footer-links{display:flex; flex-wrap:wrap; gap:10px 26px;}
+  .footer-links a{
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:500;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:2px;
+  }
+  .footer-links a:hover{color:var(--accent-deep);}
+  .fineprint{margin-top:46px; font-size:0.8rem; color:var(--ink-soft); opacity:0.8;}
+
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="name">Todd Taber</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="hero-wave" viewBox="0 0 500 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,60 C120,120 180,0 320,70 C420,120 460,40 520,90" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" fill="none"/>
+    <path d="M40,160 C160,220 220,100 360,170 C450,220 480,140 540,190" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+    <path d="M-20,260 C100,320 160,200 300,270 C400,320 440,240 520,290" stroke="rgba(227,181,99,0.16)" stroke-width="1.5" fill="none"/>
+    <path d="M20,340 C140,390 200,280 340,340 C430,380 470,310 540,350" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Todd Taber</h1>
+        <p class="role">R&amp;D Executive &middot; Keller, TX</p>
+        <p class="keywords">Medical Device Development&nbsp; | &nbsp;Leadership&nbsp; | &nbsp;Innovation</p>
+        <p class="tagline">Building and leading teams. Designing solutions for patients.</p>
+        <div class="contact-row">
+          <a href="mailto:ToddTaber@gmail.com">ToddTaber@gmail.com</a>
+          <a href="https://www.linkedin.com/in/toddtaber/" target="_blank" rel="noopener" class="linkedin-link"><span class="li-badge">in</span>linkedin.com/in/toddtaber</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="todd-headshot.png" alt="Portrait of Todd Taber">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>I lead R&amp;D organizations that build implantable and surgical medical devices, from early concept through verification, validation, and commercial launch. My background is mechanical engineering (BS and MS from the University of Oklahoma, plus an MBA from Indiana University's Kelley School of Business), and I still think like an engineer even though most of my time now goes to building and running teams.</p>
+    <p>Most of my career has been at Alcon, where I helped grow a product design organization from five people to more than twenty five, and contributed to the global launches of the Clareon IOL family in the AutonoMe delivery system and Systane iLux2. I'm now Director of R&amp;D at Osteal Therapeutics, a post-clinical medical device company developing combination therapies for periprosthetic joint infection, where I built the R&amp;D team from five people to fifteen and put a Core Team operating model in place to keep governance from lagging behind a fast-growing organization.</p>
+    <p>I'm particularly interested in the transition from individual contributor to technical leader to organizational leader, and in how R&amp;D leaders create leverage rather than simply taking on more of the work themselves.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+
+    <div class="role-block">
+      <div class="dates">Apr 2025 &ndash; Aug 2026</div>
+      <div>
+        <div class="title">Director, Research &amp; Development</div>
+        <div class="org">Osteal Therapeutics, Dallas, TX</div>
+        <ul>
+          <li>Scaled the R&amp;D organization from 5 to 15+ associates, recruiting and leading multidisciplinary teams across electromechanical devices, orthopedic implants, disposables, and packaging.</li>
+          <li>Built a Core Team operating model for cross-functional governance and sub-team ownership across R&amp;D, clinical, quality, regulatory, and marketing.</li>
+          <li>Coordinated multimillion-dollar budget planning and resource allocation across a stage-gated product realization process.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role-block">
+      <div class="dates">Nov 2015 &ndash; Apr 2025</div>
+      <div>
+        <div class="title">R&amp;D Leadership, progressing to Associate Director</div>
+        <div class="org">Alcon, Fort Worth, TX</div>
+        <ul>
+          <li>Expanded the product design organization from 5 to 25+ members, overseeing project planning, budget allocation, and resource distribution.</li>
+          <li>Built an R&amp;D rotational program that became a company-wide model for talent development.</li>
+          <li>Contributed to the global launches of Clareon Aspheric, Toric, and Vivity IOLs in the AutonoMe delivery system, and Systane iLux2 for dry eye.</li>
+          <li>Generated 20+ granted US and global patents over the course of this role.</li>
+        </ul>
+
+        <div class="sub-role">
+          <div class="dates">Aug 2022 &ndash; Mar 2025</div>
+          <div class="title">Associate Director, Intraocular Devices (IOD) Product Design</div>
+        </div>
+        <div class="sub-role">
+          <div class="dates">Mar 2019 &ndash; Aug 2022</div>
+          <div class="title">Manager, Intraocular Lens (IOL) Delivery Systems</div>
+        </div>
+        <div class="sub-role">
+          <div class="dates">Nov 2015 &ndash; Mar 2019</div>
+          <div class="title">Senior &amp; Principal Design Engineer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="earlier">
+      <div class="row"><span>Wound Care Design Program Manager, ThermoTek</span><span>Dec 2011 &ndash; Nov 2015</span></div>
+      <div class="row"><span>Lead Design Engineer, Flex</span><span>Mar 2010 &ndash; Dec 2011</span></div>
+      <div class="row"><span>Robotic Systems Engineer, L-3Harris</span><span>Jul 2006 &ndash; Oct 2009</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="wrap">
+    <h2>Highlights</h2>
+    <div class="highlights">
+      <div class="item">
+        <span class="num">5 &rarr; 25+</span>
+        <h3>Organizational scaling</h3>
+        <p>Grew R&amp;D and product design organizations from 5 to 25+ at Alcon and 5 to 15+ at Osteal Therapeutics.</p>
+      </div>
+      <div class="item">
+        <span class="num">20+</span>
+        <h3>Patents</h3>
+        <p>Granted US and global patents across a device engineering career, plus recurring ideation programs to capture new IP at Osteal.</p>
+      </div>
+      <div class="item">
+        <span class="num">4</span>
+        <h3>Global product launches</h3>
+        <p>Clareon Aspheric, Toric, and Vivity IOLs in the AutonoMe delivery system, and Systane iLux2 for dry eye.</p>
+      </div>
+      <div class="item">
+        <span class="num">2</span>
+        <h3>Leadership programs built</h3>
+        <p>An R&amp;D rotational program at Alcon and a Core Team operating model at Osteal, both for stronger governance and talent development.</p>
+      </div>
+    </div>
+
+    <div class="awards">
+      <h3>Awards</h3>
+      <div class="row"><span class="year">2025</span><span>Alcon Conner Innovation Award, for patented innovations in the hydraulic delivery of surgical implants</span></div>
+      <div class="row"><span class="year">2024</span><span>Alcon Brilliance Award, for the global launch of the Clareon family of IOLs in the AutonoMe delivery system</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills-group">
+      <h3>Leadership &amp; strategy</h3>
+      <div class="tag-row">
+        <span class="tag">Team Leadership</span>
+        <span class="tag">Organizational Development</span>
+        <span class="tag">Strategic Planning</span>
+        <span class="tag">Change Management</span>
+        <span class="tag">Budget Management</span>
+        <span class="tag">Staff Training &amp; Development</span>
+        <span class="tag">Business Relationship Management</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <h3>Product &amp; program</h3>
+      <div class="tag-row">
+        <span class="tag">Medical Device Design</span>
+        <span class="tag">Innovation Management</span>
+        <span class="tag">Product Requirements Definition</span>
+        <span class="tag">Cross-Functional Collaboration</span>
+        <span class="tag">Project Management</span>
+        <span class="tag">Design Controls</span>
+        <span class="tag">Risk Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div><span class="degree">Master of Business Administration</span>, <span class="school">Kelley School of Business, Indiana University</span></div>
+    </div>
+    <div class="edu-item">
+      <div><span class="degree">MS, Mechanical Engineering</span>, <span class="school">University of Oklahoma</span></div>
+    </div>
+    <div class="edu-item">
+      <div><span class="degree">BS, Mechanical Engineering</span>, <span class="school">University of Oklahoma</span></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>Open to conversations about R&amp;D and product development leadership roles in medical devices.</p>
+    <div class="footer-links">
+      <a href="mailto:ToddTaber@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/toddtaber/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="fineprint">Todd Taber &middot; Keller, TX &middot; www.toddtaber.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
