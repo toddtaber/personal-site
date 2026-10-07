@@ -230,6 +230,26 @@
   section p{margin:0 0 16px; max-width:74ch;}
   section p:last-child{margin-bottom:0;}
 
+  /* ---- About highlights ---- */
+  .about-points{
+    list-style:none;
+    margin:26px 0 22px;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px 32px;
+  }
+  .about-points li{font-size:0.94rem; color:var(--ink-soft); line-height:1.55;}
+  .about-points strong{
+    display:block;
+    margin-bottom:4px;
+    font-family:"IBM Plex Sans", sans-serif;
+    font-weight:600;
+    font-size:0.96rem;
+    color:var(--ink);
+  }
+  @media (max-width:640px){.about-points{grid-template-columns:1fr;}}
+
   /* ---- Experience timeline ---- */
   .role-block{
     display:grid;
@@ -238,14 +258,18 @@
     padding:20px 0;
     border-top:1px solid var(--line);
   }
-  .role-block:first-child{border-top:none; padding-top:0;}
   .role-block .dates{
     color:var(--ink-soft);
     font-size:0.86rem;
     padding-top:3px;
   }
   .role-block .title{font-weight:600; font-size:1.05rem;}
-  .role-block .org{color:var(--accent-deep); font-weight:500;}
+  .role-block .blurb{
+    margin-top:8px;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    max-width:70ch;
+  }
   .role-block ul{
     margin:10px 0 0;
     padding-left:18px;
@@ -255,32 +279,27 @@
   .role-block li{margin-bottom:6px;}
   .role-block li:last-child{margin-bottom:0;}
 
-  .sub-role{
-    display:grid;
-    grid-template-columns:150px 1fr;
-    gap:4px 24px;
-    padding:14px 0 0;
-  }
-  .sub-role .dates{color:var(--ink-soft); font-size:0.82rem;}
-  .sub-role .title{font-weight:500; font-size:0.96rem;}
-
-  @media (max-width:560px){
-    .role-block, .sub-role{grid-template-columns:1fr;}
-    .role-block .dates{padding-top:0;}
-  }
-
-  .earlier{
-    margin-top:8px;
+  .company-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
     padding-top:20px;
     border-top:1px solid var(--line);
   }
-  .earlier .row{
-    display:flex; justify-content:space-between; gap:16px;
-    padding:8px 0;
-    font-size:0.94rem;
+  .company-head .cname{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--accent-deep);
   }
-  .earlier .row span:first-child{color:var(--ink);}
-  .earlier .row span:last-child{color:var(--ink-soft); white-space:nowrap;}
+  .company-head .crange{color:var(--ink-soft); font-size:0.86rem; white-space:nowrap;}
+  .company-head + .role-block{border-top:none; padding-top:14px;}
+
+  @media (max-width:560px){
+    .role-block{grid-template-columns:1fr;}
+    .role-block .dates{padding-top:0;}
+  }
 
   /* ---- Highlights ---- */
   .highlights{
@@ -318,6 +337,49 @@
   .awards .row .year{color:var(--gold); font-weight:700; min-width:44px;}
   .awards .row span:last-child{color:var(--ink-soft);}
 
+  /* ---- Patents ---- */
+  .patent-list{border-top:1px solid var(--line);}
+  .patent{
+    display:grid;
+    grid-template-columns:170px 1fr auto;
+    gap:6px 24px;
+    align-items:baseline;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .patent .pnum{font-weight:600; font-size:0.92rem; color:var(--accent-deep);}
+  .patent .ptitle{font-weight:500;}
+  .patent .pmeta{display:block; margin-top:2px; font-size:0.86rem; color:var(--ink-soft); font-weight:400;}
+  .patent a.plink{
+    font-size:0.9rem;
+    font-weight:500;
+    color:var(--accent-deep);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+    white-space:nowrap;
+  }
+  .patent a.plink:hover{color:var(--ink); border-color:var(--gold);}
+  .patent-group{
+    font-family:"IBM Plex Sans", sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    margin:26px 0 12px;
+  }
+  .patent-more{margin-top:34px;}
+  .patent-more summary{
+    cursor:pointer;
+    font-weight:600;
+    font-size:0.98rem;
+    color:var(--accent-deep);
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .patent-more summary:hover{color:var(--ink);}
+  .patent-more[open] summary{margin-bottom:0;}
+  @media (max-width:640px){
+    .patent{grid-template-columns:1fr; gap:4px;}
+  }
+
   /* ---- Skills ---- */
   .skills-group{margin-bottom:22px;}
   .skills-group:last-child{margin-bottom:0;}
@@ -342,6 +404,7 @@
     display:grid;
     grid-template-columns:1fr auto;
     gap:4px 16px;
+    align-items:baseline;
     padding:12px 0;
     border-top:1px solid var(--line);
     font-size:0.96rem;
@@ -349,6 +412,7 @@
   .edu-item:first-child{border-top:none; padding-top:0;}
   .edu-item .degree{font-weight:600;}
   .edu-item .school{color:var(--ink-soft);}
+  .edu-item .year{color:var(--ink-soft); font-size:0.9rem; white-space:nowrap;}
 
   /* ---- Footer ---- */
   footer{
@@ -407,7 +471,7 @@
     <div class="hero-inner">
       <div class="hero-text">
         <h1>Todd Taber</h1>
-        <p class="role">R&amp;D Executive &middot; Dallas-Fort Worth, TX</p>
+        <p class="role">R&amp;D Executive &middot; Keller, TX</p>
         <p class="keywords">Medical Device Development&nbsp; | &nbsp;Leadership&nbsp; | &nbsp;Innovation</p>
         <p class="tagline">Driving Innovation.<br>Building Leaders.</p>
         <div class="contact-row">
@@ -425,8 +489,16 @@
 <section id="about">
   <div class="wrap">
     <h2>About</h2>
-    <p>I lead R&amp;D organizations that build implantable and surgical medical devices, from early concept through verification, validation, and commercial launch. My background is mechanical engineering (BS and MS from the University of Oklahoma, plus an MBA from Indiana University's Kelley School of Business), and I still think like an engineer even though most of my time now goes to building and running teams.</p>
-    <p>Most of my career has been at Alcon, where I helped grow a product design organization from five people to more than twenty five, and contributed to the global launches of the Clareon IOL family in the AutonoMe delivery system and Systane iLux2. I'm now Director of R&amp;D at Osteal Therapeutics, a post-clinical medical device company developing combination therapies for periprosthetic joint infection, where I built the R&amp;D team from five people to fifteen and put a Core Team operating model in place to keep governance from lagging behind a fast-growing organization.</p>
+    <p>I'm a medical device R&amp;D leader with 15+ years directing complex, cross-functional initiatives in regulated environments, focused on Class III implantable and combination devices. I understand innovation from concept through commercialization, including the global launch of the Clareon IOL family (70+ countries) with Alcon's AutonoMe automated, preloaded delivery system, and I have built and scaled teams in both global, publicly traded organizations and privately held, growth-stage startups.</p>
+    <p>I combine hands-on technical expertise (25 granted US patents) with leadership experience across ophthalmology, orthopedic implants, wound care, and electromechanical device development. My background is mechanical engineering (BS and MS from the University of Oklahoma, plus an MBA from Indiana University's Kelley School of Business), and I still think like an engineer even though most of my time now goes to building and running teams.</p>
+
+    <ul class="about-points">
+      <li><strong>Technical program leadership</strong>Led 10+ concurrent projects through development across implants, disposable equipment, and packaging systems. Set scope, deliverables, risk management strategy, technical expectations, schedules, and accountability for vendors, consultants, and engineering partners through a stage-gated process.</li>
+      <li><strong>Budget and resource management</strong>Owned up to $10M in annual R&amp;D operating budget and cumulative $20M in CAPEX, including headcount, hiring and compensation planning, as well as direct and indirect project budgets.</li>
+      <li><strong>Organizational scale and talent</strong>Led up to 25 direct and indirect reports while growing R&amp;D and product-design organizations at both Osteal and Alcon. Recruited and mentored multidisciplinary program teams including mechanical designers, biomedical engineers, human factors experts, and clinical scientists. Promoted and coached multiple engineers into successful people leaders and built an R&amp;D rotational program used to attract and retain talent.</li>
+      <li><strong>Governance and change management</strong>Built the Core Team operating model at Osteal to align stakeholders, escalate risk, and give each sub-team clear ownership. I have also managed teams through multiple growth and contraction cycles, which has meant managing project cancellations, multiple global reductions in force, and performance-based departures, alongside the hiring and promotion decisions that come with growth.</li>
+    </ul>
+
     <p>I'm particularly interested in the transition from individual contributor to technical leader to organizational leader, and in how R&amp;D leaders create leverage rather than simply taking on more of the work themselves.</p>
   </div>
 </section>
@@ -435,50 +507,109 @@
   <div class="wrap">
     <h2>Experience</h2>
 
+    <div class="company-head">
+      <span class="cname">Osteal Therapeutics, Dallas, TX</span>
+      <span class="crange">Apr 2025 &ndash; Aug 2026</span>
+    </div>
     <div class="role-block">
       <div class="dates">Apr 2025 &ndash; Aug 2026</div>
       <div>
         <div class="title">Director, Research &amp; Development</div>
-        <div class="org">Osteal Therapeutics, Dallas, TX</div>
+        <div class="blurb">Pre-commercial combination drug/device company with an implanted spacer and irrigation system for the treatment of periprosthetic joint infection (PJI). The NEXCHANGE Kit (FDA Breakthrough Therapy) is designed to cut a roughly 16-week treatment to 7 days. My role was eliminated in a company-wide restructuring.</div>
         <ul>
-          <li>Scaled the R&amp;D organization from 5 to 15+ associates, recruiting and leading multidisciplinary teams across electromechanical devices, orthopedic implants, disposables, and packaging.</li>
-          <li>Built a Core Team operating model for cross-functional governance and sub-team ownership across R&amp;D, clinical, quality, regulatory, and marketing.</li>
-          <li>Coordinated multimillion-dollar budget planning and resource allocation across a stage-gated product realization process.</li>
+          <li>Directed development of the orthopedic implant component of the combination product, managing the design owner and holding approval authority over engineering drawings and vendor activities. Managed a $1M+ project budget and 8+ vendors, consultants, and contract manufacturers (design controls, bench testing, V&amp;V).</li>
+          <li>Led the cross-functional project plan for the electromechanical, software-controlled irrigation system, working alongside the engineering/software leads driving the design, and managing stage-gate milestones, timelines, and project risk.</li>
+          <li>Established the Core Team model as a standard operating practice across R&amp;D, clinical, quality, regulatory, and marketing functions while expanding the R&amp;D team from 5 to more than 12 members.</li>
+          <li>Identified and resolved a launch-critical manufacturing issue with patient safety implications, and directed optimization of external supply chains across multiple contract manufacturers, suppliers, and third-party logistics partners.</li>
+          <li>Launched recurring ideation sessions that produced 3+ patent filings and multiple additional invention disclosures.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="company-head">
+      <span class="cname">Alcon, Fort Worth, TX</span>
+      <span class="crange">Nov 2015 &ndash; Apr 2025</span>
+    </div>
+    <div class="role-block">
+      <div class="dates">Aug 2022 &ndash; Apr 2025</div>
+      <div>
+        <div class="title">Associate Director, Intraocular Devices (IOD) Product Design</div>
+        <div class="blurb">Scaled the product design organization from 5 to 25, promoting two engineers into people leadership. Managed relationships with strategic partners, Key Opinion Leaders, and internal stakeholders (quality, regulatory, manufacturing).</div>
+        <ul>
+          <li>Led R&amp;D integration and delivery system product optimization for acquired platforms (PowerVision, $285M upfront; Ivantis, $475M upfront).</li>
+          <li>Presented portfolio strategy, technical risk, and resource recommendations to executive leadership, securing project investment and organizational support.</li>
+          <li>Spearheaded process-improvement initiatives that streamlined development timelines while maintaining quality and regulatory compliance, increasing milestone predictability across multidisciplinary development programs.</li>
+          <li>Won the 2024 Alcon Brilliance Award for the global launch of the Clareon family of IOLs in the AutonoMe delivery system.</li>
+          <li>Won the 2025 Alcon Conner Innovation Award for patented innovations in the hydraulic delivery of surgical implants.</li>
         </ul>
       </div>
     </div>
 
     <div class="role-block">
-      <div class="dates">Nov 2015 &ndash; Apr 2025</div>
+      <div class="dates">Mar 2019 &ndash; Aug 2022</div>
       <div>
-        <div class="title">R&amp;D Leadership, progressing to Associate Director</div>
-        <div class="org">Alcon, Fort Worth, TX</div>
+        <div class="title">Manager, Intraocular Lens (IOL) Delivery Systems</div>
         <ul>
-          <li>Expanded the product design organization from 5 to 25+ members, overseeing project planning, budget allocation, and resource distribution.</li>
-          <li>Built an R&amp;D rotational program that became a company-wide model for talent development.</li>
-          <li>Contributed to the global launches of Clareon Aspheric, Toric, and Vivity IOLs in the AutonoMe delivery system, and Systane iLux2 for dry eye.</li>
-          <li>Generated 20+ granted US and global patents over the course of this role.</li>
+          <li>Directed the engineers developing a hydraulic delivery system for a first-of-its-kind, fully accommodating IOL technology, generating 5+ patents and additional invention disclosures.</li>
+          <li>Led 3+ cross-functional sub-teams taking IOL delivery systems from ideation to verification, validation, and commercialization.</li>
+          <li>Evaluated, selected, and managed the strategic vendors (design, human factors evaluation) that integrated work across teams, keeping programs on schedule and within budget.</li>
+          <li>Supported the U.S. launch of Systane iLux2 during a 20% global commercial rotation by developing the global business and marketing plan, brand assets, value-based pricing strategy, and local market implementation approach.</li>
         </ul>
-
-        <div class="sub-role">
-          <div class="dates">Aug 2022 &ndash; Mar 2025</div>
-          <div class="title">Associate Director, Intraocular Devices (IOD) Product Design</div>
-        </div>
-        <div class="sub-role">
-          <div class="dates">Mar 2019 &ndash; Aug 2022</div>
-          <div class="title">Manager, Intraocular Lens (IOL) Delivery Systems</div>
-        </div>
-        <div class="sub-role">
-          <div class="dates">Nov 2015 &ndash; Mar 2019</div>
-          <div class="title">Senior &amp; Principal Design Engineer</div>
-        </div>
       </div>
     </div>
 
-    <div class="earlier">
-      <div class="row"><span>Wound Care Design Program Manager, ThermoTek</span><span>Dec 2011 &ndash; Nov 2015</span></div>
-      <div class="row"><span>Lead Design Engineer, Flex</span><span>Mar 2010 &ndash; Dec 2011</span></div>
-      <div class="row"><span>Robotic Systems Engineer, L-3Harris</span><span>Jul 2006 &ndash; Oct 2009</span></div>
+    <div class="role-block">
+      <div class="dates">Nov 2015 &ndash; Mar 2019</div>
+      <div>
+        <div class="title">Senior &amp; Principal Design Engineer</div>
+        <ul>
+          <li>Core Team member and sub-team lead on the global launch of the Clareon Aspheric, Toric, and Vivity IOLs in AutonoMe, designing and testing delivery system components and developing equipment and test systems for high-volume manufacturing.</li>
+          <li>Authored design controls and defined user needs and product requirements (inputs and outputs, FMEAs, CQAs) through KOL interviews, advisory boards, wet labs, and bench and in-field testing.</li>
+          <li>Evaluated product proposals during a 20% business development and licensing rotation, producing market searches and executive triage summaries that supported investment prioritization.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="company-head">
+      <span class="cname">ThermoTek, Flower Mound, TX</span>
+      <span class="crange">Dec 2011 &ndash; Nov 2015</span>
+    </div>
+    <div class="role-block">
+      <div class="dates">Dec 2011 &ndash; Nov 2015</div>
+      <div>
+        <div class="title">Wound Care Design Program Manager</div>
+        <ul>
+          <li>Managed NPWT, phototherapy, and hyperbaric oxygen therapy device programs, translating user needs into development plans, supporting 510(k) preparation, and establishing assembly processes and documentation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="company-head">
+      <span class="cname">Flex, Irving, TX</span>
+      <span class="crange">Mar 2010 &ndash; Dec 2011</span>
+    </div>
+    <div class="role-block">
+      <div class="dates">Mar 2010 &ndash; Dec 2011</div>
+      <div>
+        <div class="title">Lead Design Engineer</div>
+        <ul>
+          <li>Designed, machined, and assembled fixture prototypes for manual and semi-automated medical device assembly, and maintained engineering documentation through domestic and international manufacturing transfers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="company-head">
+      <span class="cname">L-3Harris, Houston, TX</span>
+      <span class="crange">Jul 2006 &ndash; Oct 2009</span>
+    </div>
+    <div class="role-block">
+      <div class="dates">Jul 2006 &ndash; Oct 2009</div>
+      <div>
+        <div class="title">Robotic Systems Engineer</div>
+        <ul>
+          <li>Task lead for Neutral Buoyancy Laboratory and Robotics Planning System simulation support on a NASA subcontract, building the robotic simulations used for astronaut mission planning and training.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -488,24 +619,24 @@
     <h2>Highlights</h2>
     <div class="highlights">
       <div class="item">
-        <span class="num">5 &rarr; 25+</span>
+        <span class="num">5 &rarr; 25</span>
         <h3>Organizational scaling</h3>
-        <p>Grew R&amp;D and product design organizations from 5 to 25+ at Alcon and 5 to 15+ at Osteal Therapeutics.</p>
+        <p>Grew the product design organization from 5 to 25 at Alcon and the R&amp;D team from 5 to more than 12 at Osteal Therapeutics.</p>
       </div>
       <div class="item">
-        <span class="num">20+</span>
-        <h3>Patents</h3>
-        <p>Granted US and global patents across a device engineering career, plus recurring ideation programs to capture new IP at Osteal.</p>
+        <span class="num">25</span>
+        <h3>Granted US patents</h3>
+        <p>Across intraocular lens delivery, surgical implant delivery, and wound care, plus recurring ideation sessions at Osteal that produced 3+ patent filings.</p>
       </div>
       <div class="item">
-        <span class="num">4</span>
-        <h3>Global product launches</h3>
-        <p>Clareon Aspheric, Toric, and Vivity IOLs in the AutonoMe delivery system, and Systane iLux2 for dry eye.</p>
+        <span class="num">70+</span>
+        <h3>Countries in the Clareon launch</h3>
+        <p>Global launch of the Clareon IOL family with Alcon's AutonoMe preloaded delivery system, plus support for the U.S. launch of Systane iLux2 for dry eye.</p>
       </div>
       <div class="item">
         <span class="num">2</span>
         <h3>Leadership programs built</h3>
-        <p>An R&amp;D rotational program at Alcon and a Core Team operating model at Osteal, both for stronger governance and talent development.</p>
+        <p>An R&amp;D rotational program at Alcon, used to attract and retain talent, and a Core Team operating model at Osteal for cross-functional governance.</p>
       </div>
     </div>
 
@@ -517,6 +648,148 @@
   </div>
 </section>
 
+<section id="patents">
+  <div class="wrap">
+    <h2>Patents</h2>
+    <p>Inventor on 25 granted US patents across intraocular lens delivery systems, surgical implant delivery, and wound care devices.</p>
+
+    <div class="patent-list">
+        <div class="patent">
+          <div class="pnum">US 11,925,548</div>
+          <div class="ptitle">Hydraulic delivery of surgical implants<span class="pmeta">Granted Mar 12, 2024</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11925548" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,403,002</div>
+          <div class="ptitle">Hybrid power delivery for surgical implants<span class="pmeta">Granted Sep 2, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12403002" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,350,145</div>
+          <div class="ptitle">Magnetically coupled power delivery for surgical implants<span class="pmeta">Granted Jul 8, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12350145" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,324,590</div>
+          <div class="ptitle">Collapsing push injector with hydraulic damping<span class="pmeta">Granted May 10, 2022</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11324590" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 10,272,258</div>
+          <div class="ptitle">Method and system for wound care<span class="pmeta">Granted Apr 30, 2019, ThermoTek, Inc.</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/10272258" target="_blank" rel="noopener">View patent</a>
+        </div>
+    </div>
+
+    <details class="patent-more">
+      <summary>Show remaining 20 patents</summary>
+      <div class="patent-list">
+        <div class="patent">
+          <div class="pnum">US 12,558,215</div>
+          <div class="ptitle">Soft tip plunger<span class="pmeta">Granted Feb 24, 2026</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12558215" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,551,335</div>
+          <div class="ptitle">Hydraulic delivery of surgical implants<span class="pmeta">Granted Feb 17, 2026</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12551335" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,496,188</div>
+          <div class="ptitle">Retractable cap actuation for an intraocular lens cartridge<span class="pmeta">Granted Dec 16, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12496188" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,496,189</div>
+          <div class="ptitle">Packaging-integrated manually actuated intraocular lens cartridge<span class="pmeta">Granted Dec 16, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12496189" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,433,741</div>
+          <div class="ptitle">Haptic management for delivery of intraocular implants<span class="pmeta">Granted Oct 7, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12433741" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,329,633</div>
+          <div class="ptitle">Intraocular lens injector<span class="pmeta">Granted Jun 17, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12329633" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,318,280</div>
+          <div class="ptitle">Removable cap actuation for an intraocular lens cartridge<span class="pmeta">Granted Jun 3, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12318280" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,290,435</div>
+          <div class="ptitle">Packaging-assisted actuation for an intraocular lens cartridge<span class="pmeta">Granted May 6, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12290435" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,251,306</div>
+          <div class="ptitle">Hydraulic delivery of surgical implants<span class="pmeta">Granted Mar 18, 2025</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12251306" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 12,156,805</div>
+          <div class="ptitle">Hydraulic delivery of surgical implants<span class="pmeta">Granted Dec 3, 2024</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/12156805" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,931,247</div>
+          <div class="ptitle">Packaging-integrated manually actuated intraocular lens cartridge<span class="pmeta">Granted Mar 19, 2024</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11931247" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,911,263</div>
+          <div class="ptitle">Packaging-assisted actuation for an intraocular lens cartridge<span class="pmeta">Granted Feb 27, 2024</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11911263" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,839,537</div>
+          <div class="ptitle">Hydraulic delivery of surgical implants<span class="pmeta">Granted Dec 12, 2023</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11839537" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,833,032</div>
+          <div class="ptitle">Retractable cap actuation for an intraocular lens cartridge<span class="pmeta">Granted Dec 5, 2023</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11833032" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,642,219</div>
+          <div class="ptitle">Removable cap actuation for an intraocular lens cartridge<span class="pmeta">Granted May 9, 2023</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11642219" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,633,276</div>
+          <div class="ptitle">IOL folding device<span class="pmeta">Granted Apr 25, 2023</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11633276" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,439,499</div>
+          <div class="ptitle">Intraocular lens injector<span class="pmeta">Granted Sep 13, 2022</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11439499" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,337,797</div>
+          <div class="ptitle">Cam actuated base folding mechanism<span class="pmeta">Granted May 24, 2022</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11337797" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 11,000,367</div>
+          <div class="ptitle">Intraocular lens injector<span class="pmeta">Granted May 11, 2021</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/11000367" target="_blank" rel="noopener">View patent</a>
+        </div>
+        <div class="patent">
+          <div class="pnum">US 9,669,233</div>
+          <div class="ptitle">Method and system for wound care<span class="pmeta">Granted Jun 6, 2017, ThermoTek, Inc.</span></div>
+          <a class="plink" href="https://patents.justia.com/patent/9669233" target="_blank" rel="noopener">View patent</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
 <section id="skills">
   <div class="wrap">
     <h2>Skills</h2>
@@ -525,23 +798,38 @@
       <div class="tag-row">
         <span class="tag">Team Leadership</span>
         <span class="tag">Organizational Development</span>
-        <span class="tag">Strategic Planning</span>
+        <span class="tag">Talent Development &amp; Coaching</span>
         <span class="tag">Change Management</span>
-        <span class="tag">Budget Management</span>
-        <span class="tag">Staff Training &amp; Development</span>
-        <span class="tag">Business Relationship Management</span>
+        <span class="tag">Governance &amp; Operating Models</span>
+        <span class="tag">Strategic Planning</span>
+        <span class="tag">Executive Communication</span>
+        <span class="tag">Budget &amp; Resource Management</span>
+        <span class="tag">Vendor &amp; Partner Management</span>
       </div>
     </div>
     <div class="skills-group">
       <h3>Product &amp; program</h3>
       <div class="tag-row">
-        <span class="tag">Medical Device Design</span>
-        <span class="tag">Innovation Management</span>
-        <span class="tag">Product Requirements Definition</span>
-        <span class="tag">Cross-Functional Collaboration</span>
-        <span class="tag">Project Management</span>
+        <span class="tag">Technical Program Leadership</span>
+        <span class="tag">Stage-Gate Product Development</span>
         <span class="tag">Design Controls</span>
-        <span class="tag">Risk Management</span>
+        <span class="tag">Risk Management (FMEA)</span>
+        <span class="tag">Verification &amp; Validation</span>
+        <span class="tag">User Needs &amp; Product Requirements</span>
+        <span class="tag">Cross-Functional Collaboration</span>
+        <span class="tag">Innovation &amp; IP Generation</span>
+        <span class="tag">Contract Manufacturing &amp; Supply Chain</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <h3>Device domains</h3>
+      <div class="tag-row">
+        <span class="tag">Class III Implantable Devices</span>
+        <span class="tag">Combination Products</span>
+        <span class="tag">Ophthalmic Devices &amp; IOL Delivery Systems</span>
+        <span class="tag">Orthopedic Implants</span>
+        <span class="tag">Wound Care Devices</span>
+        <span class="tag">Electromechanical &amp; Software-Controlled Devices</span>
       </div>
     </div>
   </div>
@@ -552,12 +840,15 @@
     <h2>Education</h2>
     <div class="edu-item">
       <div><span class="degree">Master of Business Administration</span>, <span class="school">Kelley School of Business, Indiana University</span></div>
+      <div class="year">2019</div>
     </div>
     <div class="edu-item">
       <div><span class="degree">MS, Mechanical Engineering</span>, <span class="school">University of Oklahoma</span></div>
+      <div class="year">2006</div>
     </div>
     <div class="edu-item">
       <div><span class="degree">BS, Mechanical Engineering</span>, <span class="school">University of Oklahoma</span></div>
+      <div class="year">2004</div>
     </div>
   </div>
 </section>
@@ -570,7 +861,7 @@
       <a href="mailto:ToddTaber@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/toddtaber/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <p class="fineprint">Todd Taber &middot; Dallas-Fort Worth, TX &middot; www.toddtaber.com</p>
+    <p class="fineprint">Todd Taber &middot; Keller, TX &middot; www.toddtaber.com</p>
   </div>
 </footer>
 
